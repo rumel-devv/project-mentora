@@ -1,70 +1,43 @@
 import React from "react";
+import CourseCard from "./CourseCard";
+import { featuredData } from "@/lib/data";
 
-const TopRatedCourse = () => {
-  const course = {
-    title: "Full Stack Web Development",
-    description:
-      "Learn React, Next.js, Node.js and MongoDB from scratch and become a job-ready developer with real-world projects.",
-    category: "Web Development",
-    rating: 4.8,
-    students: 1200,
-  };
+const FeaturedCourse = async () => {
+   const courses = await featuredData()
+  //  console.log(courses);
 
   return (
-    <section className="py-16 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-10">
+           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+  
+  {/* HEADING */}
+ <div className="text-center max-w-3xl mx-auto mb-14">
+  
+  <span className="inline-block bg-blue-100 text-blue-600 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+    Featured Courses
+  </span>
 
-        {/* Badge */}
-        <div className="flex justify-center mb-6">
-          <span className="px-4 py-2 text-sm font-semibold bg-blue-100 text-blue-600 rounded-full">
-            🔥 Featured Top Rated Course
-          </span>
-        </div>
+  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+    Discover Our Most Popular Learning Programs
+  </h1>
 
-        {/* Section Title */}
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900">
-            Top Rated Course
-          </h2>
+  <p className="text-gray-600 mt-5 text-md">
+    Explore hand-picked courses designed to help you master modern
+    technologies, build real-world projects, and grow your career
+    with industry-focused skills.
+  </p>
+</div>
 
-          <p className="text-md md:text-xl text-gray-500 mt-4 max-w-2xl mx-auto leading-relaxed">
-            Most popular and highly rated course loved by thousands of students worldwide
-          </p>
-        </div>
-
-        {/* Card */}
-        <div className="max-w-md mx-auto bg-white rounded-2xl shadow-md border hover:shadow-xl transition p-3 md:p-6">
-
-          {/* Category Badge */}
-          <span className="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-600 rounded-full">
-            {course.category}
-          </span>
-
-          {/* Title */}
-          <h3 className="text-2xl font-bold text-slate-900 mt-4">
-            {course.title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-gray-600 text-base mt-3 leading-relaxed">
-            {course.description}
-          </p>
-
-          {/* Stats */}
-          <div className="flex items-center justify-between mt-6 text-sm text-gray-600">
-            <span>⭐ {course.rating} Rating</span>
-            <span>{course.students}+ Students</span>
-          </div>
-
-          {/* Button */}
-          <button className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
-            View Course
-          </button>
-
-        </div>
-      </div>
-    </section>
+  {/* COURSE GRID */}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    {courses.map((course) => (
+      <CourseCard
+        key={course._id}
+        course={course}
+      />
+    ))}
+  </div>
+</div>
   );
 };
 
-export default TopRatedCourse;
+export default FeaturedCourse;
