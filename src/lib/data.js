@@ -9,3 +9,8 @@ export const featuredData = async () => {
     return data
 }
 
+export const DeteailsPageData  = async (id) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/courses/${id}`)
+    const data = await res.json()
+    return data
+}

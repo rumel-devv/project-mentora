@@ -1,6 +1,7 @@
 import React from "react";
 import { Clock, User, Tag } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const CourseCard = ({ course }) => {
   const {
@@ -11,6 +12,7 @@ const CourseCard = ({ course }) => {
     duration,
     instructor,
     price,
+    _id
   } = course;
 
   return (
@@ -70,9 +72,11 @@ const CourseCard = ({ course }) => {
         </div>
 
         {/* BUTTON */}
-        <button className="w-full mt-4 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold py-3 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-blue-300">
-          Enroll Now
+       <Link href={`/courses/${_id}`}  >
+        <button className="w-full mt-4 bg-gradient-to-r cursor-pointer from-sky-500 to-blue-600 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold py-3 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-blue-300">
+          View Details
         </button>
+       </Link>
       </div>
     </div>
   );
