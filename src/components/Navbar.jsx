@@ -72,7 +72,7 @@ const Navbar = () => {
         {/* RIGHT */}
         {user ? (
           <div className="flex items-center gap-3">
-            <Link href="/profile">
+            <Link href="/dashboard">
               <Avatar>
                 <Avatar.Image alt={user?.name} src={user?.image} />
 

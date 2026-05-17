@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 
 import { DeteailsPageData } from "@/lib/data";
+import AddCoursecard from "@/components/AddCoursecard";
 
 const CourseDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -96,73 +97,7 @@ const CourseDetailsPage = async ({ params }) => {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="h-fit sticky top-24 self-start">
-
-          <div className="bg-white rounded-3xl shadow-xl p-6 border border-slate-100">
-
-            {/* PRICE */}
-            {course?.price && (
-              <>
-                <h2 className="text-4xl font-bold text-slate-800">
-                  ${course?.price}
-                </h2>
-
-                <p className="text-slate-500 mt-2 text-md">
-             Lifetime access included
-                </p>
-              </>
-            )}
-
-            {/* BUTTONS */}
-            <div className="mt-5 flex flex-col gap-3">
-
-              <button className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white py-3.5 rounded-2xl font-semibold shadow-md">
-                Enroll Now
-              </button>
-
-              <button className="w-full border border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300 py-3.5 rounded-2xl font-semibold">
-                Add to Wishlist
-              </button>
-
-            </div>
-
-            {/* DETAILS */}
-            <div className="mt-6 border-t pt-5 space-y-4 text-sm text-slate-700">
-
-              {course?.instructor && (
-                <div className="flex justify-between gap-4">
-                  <span>Instructor</span>
-
-                  <span className="font-semibold text-right">
-                    {course?.instructor}
-                  </span>
-                </div>
-              )}
-
-              {course?.duration && (
-                <div className="flex justify-between gap-4">
-                  <span>Duration</span>
-
-                  <span className="font-semibold">
-                    {course?.duration}
-                  </span>
-                </div>
-              )}
-
-              {course?.category && (
-                <div className="flex justify-between gap-4">
-                  <span>Category</span>
-
-                  <span className="font-semibold">
-                    {course?.category}
-                  </span>
-                </div>
-              )}
-
-            </div>
-
-          </div>
-        </div>
+       <AddCoursecard course={course} ></AddCoursecard>
 
       </div>
     </div>
