@@ -8,8 +8,8 @@ const AddCoursecard = ({course}) => {
       const user = session?.user;
     // console.log(user);
     const {_id,title,description,thumbnail,duration,instructor,
-category} = course 
-
+category,price} = course 
+console.log(price);
     const handleAddCourse = async () => {
          const addedData = {
              userId : user?.id,
@@ -19,7 +19,7 @@ category} = course
              title,
              description,
              title,
-             thumbnail,category,instructor,duration
+             thumbnail,category,instructor,duration,price
          }
         //  console.log(addedData);
         const res = await fetch(`http://localhost:5000/booking`,{

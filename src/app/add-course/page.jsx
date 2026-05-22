@@ -1,6 +1,6 @@
 "use client";
 
-import { courseData } from "@/lib/data";
+// import { courseData } from "@/lib/data";
 import React from "react";
 import {
   FaBookOpen,

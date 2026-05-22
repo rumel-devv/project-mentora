@@ -24,7 +24,7 @@ const UserCard = () => {
   }
 
   return (
-    <div className="flex items-center gap-4 p-4 border rounded-xl shadow-sm bg-white">
+    <div className="flex flex-col justify-center items-center gap-4 p-4 border rounded-xl shadow-sm bg-white">
 
       {/* Avatar */}
       <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
@@ -45,7 +45,7 @@ const UserCard = () => {
 
       {/* Info */}
       <div>
-        <h2 className="font-semibold text-gray-800">
+        <h2 className="font-semibold text-lg text-gray-800">
           {user.name}
         </h2>
 
